@@ -5,6 +5,9 @@ from transforms import data_transforms
 import config
 from arguments import parse_args
 
+import sys
+sys.path.append("../input/monai-v060-deep-learning-in-healthcare-imaging")
+import monai
 import pandas as pd
 import torch
 import argparse
