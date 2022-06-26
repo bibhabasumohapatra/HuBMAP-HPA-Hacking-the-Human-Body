@@ -1,10 +1,7 @@
 from monai.losses import DiceLoss
 from monai.metrics import DiceMetric
-import torch
-import torch.nn as nn
 
-
-dice_metric = DiceMetric(include_background=True, reduction="mean", get_not_nans=False)
+# dice_metric = DiceMetric(include_background=True, reduction="mean", get_not_nans=False)
 
 def train(model,train_loader,device,optimizer):
     model.train()
@@ -28,6 +25,7 @@ def train(model,train_loader,device,optimizer):
     
 def eval(model,valid_loader,device,optimizer):
     model.eval()
+    running_dice_score = 0.0
     running_val_loss = 0.0
     with torch.no_grad():
         for data in valid_loader:
@@ -39,12 +37,13 @@ def eval(model,valid_loader,device,optimizer):
 
             output = model(inputs,)
             running_val_loss +=  DiceLoss(sigmoid=True)(output, masks)
-            dice_metric(y_pred=output, y=masks)
-
-        val_loss = running_val_loss/len(valid_loader)    
+            
+            output = torch.sigmoid(output)
+            running_dice_score += dice_coef(masks, output)
+ 
+        val_loss = running_val_loss/len(valid_loader) 
+        dice_score = running_dice_score/len(valid_loader)
+        
         print(f'valid DICE loss is {val_loss}')
-        metric = dice_metric.aggregate().item()
-        # reset the status for next validation round
-        dice_metric.reset()
-
-    return metric 
+        
+    return dice_score
