@@ -1,4 +1,4 @@
-import Albumentations as A
+import albumentations as A
 import cv2
 import config
 
