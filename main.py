@@ -15,7 +15,7 @@ df = pd.read_csv("../input/hubmap-folds/train_256x256_5folds.csv")
 
 for fold in range(config.FOLDS):
 
-    best_metric = 0
+    best_metric = 0.0
     model = get_model()
 
     df_train = df[df.fold != fold].reset_index(drop=True)
@@ -43,12 +43,12 @@ for fold in range(config.FOLDS):
         print(f'==================== Epoch -- {epoch} ====================')
         train(model=model,train_loader=train_loader,device=config.DEVICE,optimizer=optimizer)
 
-        dice_metric = eval(model=model,valid_loader=valid_loader,device=config.DEVICE,optimizer=optimizer)
+        dice_score = eval(model=model,valid_loader=valid_loader,device=config.DEVICE,optimizer=optimizer)
 
-        print(f'DICE Metric={dice_metric}')
+        print(f'DICE Metric={dice_score}')
 
-        if best_metric <= dice_metric:
-            best_metric = dice_metric
+        if dice_score >= best_metric:
+            best_metric = dice_score
             torch.save(model.state_dict(),f'model-epoch-{epoch}'+str(fold)+'.pth')
 
 # if __name__ == "__main__":
