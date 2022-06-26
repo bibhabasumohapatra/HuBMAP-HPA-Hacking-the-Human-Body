@@ -1,6 +1,8 @@
 from monai.losses import DiceLoss
 from monai.metrics import DiceMetric
 from metrics import dice_coef
+import torch
+import torch.nn as nn
 # dice_metric = DiceMetric(include_background=True, reduction="mean", get_not_nans=False)
 
 def train(model,train_loader,device,optimizer):
