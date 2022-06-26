@@ -1,4 +1,5 @@
 import segmentation_models_pytorch as smp
+import torch
 
 JaccardLoss = smp.losses.JaccardLoss(mode='multilabel')
 DiceLoss    = smp.losses.DiceLoss(mode='multilabel')
