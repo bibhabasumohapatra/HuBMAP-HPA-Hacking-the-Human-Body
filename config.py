@@ -2,6 +2,7 @@ import argparse
 
 def parse_args():
     parser = argparse.ArgumentParser()
+    parser.add_argument("--image_size", type=int, required=False, default=256)
     parser.add_argument("--fold", type=int, required=False, default=0)
     parser.add_argument("--model", type=str, required=False, default="efficientnet-b5")
     parser.add_argument("--loss", type=str, required=False, default="BCE")
@@ -20,5 +21,7 @@ VALID_BATCH_SIZE = 2* TRAIN_BATCH_SIZE
 EPOCHS = args.epochs
 LOSS = args.loss
 
+IMAGE_SIZE = args.image_size
 MEAN =  [0.78036435, 0.75635034, 0.77327976]
 STD = [0.24925208, 0.26279064, 0.258655 ] 
+
