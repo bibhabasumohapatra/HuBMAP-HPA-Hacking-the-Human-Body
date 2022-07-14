@@ -1,26 +1,34 @@
-from dataset import HubDataset
-from model import get_model
-from engine import train, eval
-from transforms import data_transforms
 import config
-from arguments import parse_args
+from model import HubmapModel
+from dataset import HubDataset
+from augmentation import data_transforms
+from engine import train, evaluation
 
-import sys
-sys.path.append("../input/monai-v060-deep-learning-in-healthcare-imaging")
-import monai
-import pandas as pd
+## PRINT CONFIG ##
+print("configuration :")
+print(f" -- FOLDS : {config.FOLDS}")
+print(f" -- MODEL : {config.MODEL}")
+print(f" -- LR : {config.LR}")
+print(f" -- TRAIN_BATCH_SIZE  : {config.TRAIN_BATCH_SIZE}")
+print(f" -- VALID_BATCH_SIZE  : {config.VALID_BATCH_SIZE}")
+print(f" -- EPOCHS  : {config.EPOCHS}")
+
 import torch
-import argparse
+import pandas as pd
 
-scores = []
+model = HubmapModel()
+model.to("cuda")
+
+optimizer = torch.optim.AdamW(model.parameters(),lr=config.LR,amsgrad=True )
+
 
 df = pd.read_csv("../input/hubmap-folds/train_256x256_5folds.csv")
 
 for fold in range(config.FOLDS):
 
     best_metric = 0.0
-    model = get_model()
 
+    model.to(config.DEVICE)
     df_train = df[df.fold != fold].reset_index(drop=True)
     df_valid = df[df.fold == fold].reset_index(drop=True)
 
@@ -40,20 +48,17 @@ for fold in range(config.FOLDS):
     valid_loader = torch.utils.data.DataLoader(valid_dataset,batch_size=config.VALID_BATCH_SIZE,shuffle=False,pin_memory=True) 
 
     optimizer = torch.optim.AdamW(model.parameters(),lr=config.LR,amsgrad=True )
+    scheduler = torch.optim.lr_scheduler.ExponentialLR(optimizer, gamma=0.85, verbose=True)
 
     print(f'============================== FOLD -- {fold} ==============================')
+
     for epoch in range(config.EPOCHS):
         print(f'==================== Epoch -- {epoch} ====================')
         train(model=model,train_loader=train_loader,device=config.DEVICE,optimizer=optimizer)
-
-        dice_score = eval(model=model,valid_loader=valid_loader,device=config.DEVICE,optimizer=optimizer)
+        scheduler.step()
+        dice_score = evaluation(model=model,valid_loader=valid_loader,device=config.DEVICE,optimizer=optimizer)
 
         print(f'DICE Metric={dice_score}')
 
-        if dice_score >= best_metric:
-            best_metric = dice_score
-            torch.save(model.state_dict(),f'model-epoch-{epoch}'+str(fold)+'.pth')
-
-# if __name__ == "__main__":
-
-#     args = parse_args()
+        
+        torch.save(model.state_dict(),'model-'+str(fold)+ f"epoch-{epoch}" +'.pth')

@@ -1,18 +1,13 @@
-import config
-
-import torch.nn as nn
-import monai
 import torch
+import torch.nn as nn
+import segmentation_models_pytorch as smp
 
-def get_model():
+
+def HubmapModel():
+
+    model = smp.Unet(encoder_name="efficientnet-b5", 
+        encoder_weights="imagenet", 
+        in_channels=3, 
+        classes=1).to("cuda")
     
-    model = monai.networks.nets.UNet(
-        spatial_dims=2,
-        in_channels=3,
-        out_channels=1,
-        channels=(16, 32, 64, 128, 256),
-        strides=(2, 2, 2, 2),
-        num_res_units=2,
-        ).to(config.DEVICE)
-        
     return model

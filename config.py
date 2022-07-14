@@ -1,10 +1,24 @@
-IMAGE_SIZE = 256
-TRAIN_BATCH_SIZE = 2
-VALID_BATCH_SIZE = 2*TRAIN_BATCH_SIZE
-EPOCHS = 10
-DEVICE = "cuda"
-OUTPUT = "/hubmap/"
-ENCODER = "resnet18"
-ENCODER_WEIGHTS = "imagenet"
-FOLDS = 5
-LR = 1e-6
+import argparse
+
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--fold", type=int, required=False, default=0)
+    parser.add_argument("--model", type=str, required=False, default="efficientnet-b5")
+    parser.add_argument("--loss", type=str, required=False, default="BCE")
+    parser.add_argument("--lr", type=float, required=False, default=3e-5)
+    parser.add_argument("--batch_size", type=int, default=2, required=False)
+    parser.add_argument("--epochs", type=int, default=5, required=False)
+    return parser.parse_args()
+
+args = parse_args()
+
+FOLDS = args.fold
+MODEL = args.model 
+LR = args.lr
+TRAIN_BATCH_SIZE = args.batch_size
+VALID_BATCH_SIZE = 2* TRAIN_BATCH_SIZE
+EPOCHS = args.epochs
+LOSS = args.loss
+
+MEAN =  [0.78036435, 0.75635034, 0.77327976]
+STD = [0.24925208, 0.26279064, 0.258655 ] 
