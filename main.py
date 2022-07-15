@@ -16,18 +16,19 @@ print(f" -- TRAIN_BATCH_SIZE  : {config.TRAIN_BATCH_SIZE}")
 print(f" -- VALID_BATCH_SIZE  : {config.VALID_BATCH_SIZE}")
 print(f" -- EPOCHS  : {config.EPOCHS}")
 
-model = HubmapModel()
-model.to("cuda")
+
 
 df = pd.read_csv("../input/hubmap-folds/train_256x256_5folds.csv")
 
 print("read csv- - - train_256x256_5folds.csv")
 
 for fold in range(config.FOLDS):
-
+    
     best_metric = 0.0
 
-    model.to(config.DEVICE)
+    model = HubmapModel()
+    model.to("cuda")
+    
     df_train = df[df.fold != fold].reset_index(drop=True)
     df_valid = df[df.fold == fold].reset_index(drop=True)
 
