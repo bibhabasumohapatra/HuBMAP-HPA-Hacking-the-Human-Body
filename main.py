@@ -4,6 +4,9 @@ from dataset import HubDataset
 from augmentation import data_transforms
 from engine import train, evaluation
 
+import torch
+import pandas as pd
+
 ## PRINT CONFIG ##
 print("configuration :")
 print(f" -- FOLDS : {config.FOLDS}")
@@ -13,15 +16,12 @@ print(f" -- TRAIN_BATCH_SIZE  : {config.TRAIN_BATCH_SIZE}")
 print(f" -- VALID_BATCH_SIZE  : {config.VALID_BATCH_SIZE}")
 print(f" -- EPOCHS  : {config.EPOCHS}")
 
-import torch
-import pandas as pd
-
 model = HubmapModel()
 model.to("cuda")
 
 df = pd.read_csv("../input/hubmap-folds/train_256x256_5folds.csv")
 
-print("read csv - - - train_256x256_5folds.csv")
+print("read csv- - - train_256x256_5folds.csv")
 
 for fold in range(config.FOLDS):
 
@@ -61,3 +61,4 @@ for fold in range(config.FOLDS):
 
         
         torch.save(model.state_dict(),'model-'+str(fold)+ f"epoch-{epoch}" +'.pth')
+        
