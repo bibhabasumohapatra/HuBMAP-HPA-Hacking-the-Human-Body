@@ -11,7 +11,7 @@ loss = config.LOSS
 
 JaccardLoss = smp.losses.JaccardLoss(mode='binary',smooth=1.0)
 DiceLoss = smp.losses.DiceLoss(mode='binary', smooth=1.0)
-FocalLoss = smp.losses.FocalLoss(mode="binary", smooth=1.0)
+FocalLoss = smp.losses.FocalLoss(mode="binary")
 BCELoss     = smp.losses.SoftBCEWithLogitsLoss()
 LovaszLoss  = smp.losses.LovaszLoss(mode='binary', per_image=False)
 TverskyLoss = smp.losses.TverskyLoss(mode='binary', log_loss=False)
