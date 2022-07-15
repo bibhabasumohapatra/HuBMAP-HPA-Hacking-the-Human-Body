@@ -19,10 +19,9 @@ import pandas as pd
 model = HubmapModel()
 model.to("cuda")
 
-optimizer = torch.optim.AdamW(model.parameters(),lr=config.LR,amsgrad=True )
-
-
 df = pd.read_csv("../input/hubmap-folds/train_256x256_5folds.csv")
+
+print("read csv - - - train_256x256_5folds.csv")
 
 for fold in range(config.FOLDS):
 
