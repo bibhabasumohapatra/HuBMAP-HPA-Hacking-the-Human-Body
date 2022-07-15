@@ -22,7 +22,7 @@ df = pd.read_csv("../input/hubmap-folds/train_256x256_5folds.csv")
 
 print("read csv- - - train_256x256_5folds.csv")
 
-for fold in range(config.FOLDS):
+for fold in {config.FOLDS}:
     
     best_metric = 0.0
 
