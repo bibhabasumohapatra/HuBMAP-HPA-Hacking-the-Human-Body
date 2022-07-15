@@ -20,6 +20,7 @@ TRAIN_BATCH_SIZE = args.batch_size
 VALID_BATCH_SIZE = 2* TRAIN_BATCH_SIZE
 EPOCHS = args.epochs
 LOSS = args.loss
+DEVICE = "cuda"
 
 IMAGE_SIZE = args.image_size
 MEAN =  [0.78036435, 0.75635034, 0.77327976]
