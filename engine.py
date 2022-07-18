@@ -26,7 +26,7 @@ def train(model,train_loader,device,optimizer):
         ## forward 
         with torch.cuda.amp.autocast():
             outputs = model(inputs,)
-            loss = criterion(torch.sigmoid(outputs), masks)
+            loss = criterion(outputs, masks)
 
         optimizer.zero_grad()
         scaler.scale(loss).backward()
