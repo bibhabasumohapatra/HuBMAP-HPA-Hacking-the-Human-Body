@@ -5,8 +5,8 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument("--image_size", type=int, required=False, default=256)
     parser.add_argument("--fold", type=int, required=False, default=0)
-    parser.add_argument("--model", type=str, required=False, default="efficientnet-b5")
-    parser.add_argument("--loss", type=str, required=False, default="BCE")
+    parser.add_argument("--model", type=str, required=False, default="nvidia/segformer-b0-finetuned-cityscapes-1024-1024")
+    parser.add_argument("--loss", type=str, required=False, default="Dice_BCE")
     parser.add_argument("--lr", type=float, required=False, default=3e-5)
     parser.add_argument("--batch_size", type=int, default=2, required=False)
     parser.add_argument("--epochs", type=int, default=5, required=False)
@@ -22,7 +22,7 @@ def parse_args():
 args = parse_args()
 
 FOLDS = args.fold
-MODEL = args.model
+MODEL_PATH = args.model
 LR = args.lr
 TRAIN_BATCH_SIZE = args.batch_size
 VALID_BATCH_SIZE = 2 * TRAIN_BATCH_SIZE
