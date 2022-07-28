@@ -13,7 +13,7 @@ from engine import train, evaluation
 ## PRINT CONFIG ##
 print("configuration :")
 print(f" -- FOLDS : {config.FOLDS}")
-print(f" -- MODEL : {config.MODEL}")
+print(f" -- MODEL : {config.MODEL_PATH}")
 print(f" -- LR : {config.LR}")
 print(f" -- TRAIN_BATCH_SIZE  : {config.TRAIN_BATCH_SIZE}")
 print(f" -- VALID_BATCH_SIZE  : {config.VALID_BATCH_SIZE}")
