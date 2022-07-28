@@ -1,0 +1,77 @@
+
+
+--- [START 2022-07-25_14-42-25] ----------------------------------------------------------------
+
+** net setting **
+organ_threshold = {'kidney': 0.5, 'prostate': 0.5, 'largeintestine': 0.5, 'spleen': 0.5, 'lung': 0.2}
+swa checkpoint = ['/home/user/share1/kaggle/2022/hubmap-organ-segmentation/result/run20/upernet-swin_small_patch4_window7_224_22k-aux5-768/fold-0/checkpoint//00013248.model.pth'
+ '/home/user/share1/kaggle/2022/hubmap-organ-segmentation/result/run20/upernet-swin_small_patch4_window7_224_22k-aux5-768/fold-0/checkpoint//00014766.model.pth'
+ '/home/user/share1/kaggle/2022/hubmap-organ-segmentation/result/run20/upernet-swin_small_patch4_window7_224_22k-aux5-768/fold-0/checkpoint//00012006.model.pth']
+lb_score = 0.7159745029101686
+
+
+--- [START 2022-07-25_14-42-25] ----------------------------------------------------------------
+
+** net setting **
+organ_threshold = {'kidney': 0.5, 'prostate': 0.5, 'largeintestine': 0.5, 'spleen': 0.5, 'lung': 0.2}
+swa checkpoint = ['/home/user/share1/kaggle/2022/hubmap-organ-segmentation/result/run20/upernet-swin_small_patch4_window7_224_22k-aux5-768/fold-1/checkpoint//00010488.model.pth'
+ '/home/user/share1/kaggle/2022/hubmap-organ-segmentation/result/run20/upernet-swin_small_patch4_window7_224_22k-aux5-768/fold-1/checkpoint//00011454.model.pth'
+ '/home/user/share1/kaggle/2022/hubmap-organ-segmentation/result/run20/upernet-swin_small_patch4_window7_224_22k-aux5-768/fold-1/checkpoint//00011868.model.pth']
+lb_score = 0.8228493614725729
+
+
+--- [START 2022-07-25_14-42-25] ----------------------------------------------------------------
+
+** net setting **
+organ_threshold = {'kidney': 0.5, 'prostate': 0.5, 'largeintestine': 0.5, 'spleen': 0.5, 'lung': 0.2}
+swa checkpoint = ['/home/user/share1/kaggle/2022/hubmap-organ-segmentation/result/run20/upernet-swin_small_patch4_window7_224_22k-aux5-768/fold-2/checkpoint//00014766.model.pth'
+ '/home/user/share1/kaggle/2022/hubmap-organ-segmentation/result/run20/upernet-swin_small_patch4_window7_224_22k-aux5-768/fold-2/checkpoint//00011454.model.pth'
+ '/home/user/share1/kaggle/2022/hubmap-organ-segmentation/result/run20/upernet-swin_small_patch4_window7_224_22k-aux5-768/fold-2/checkpoint//00013110.model.pth']
+lb_score = 0.798237102785676
+
+
+--- [START 2022-07-25_14-42-25] ----------------------------------------------------------------
+
+** net setting **
+organ_threshold = {'kidney': 0.5, 'prostate': 0.5, 'largeintestine': 0.5, 'spleen': 0.5, 'lung': 0.2}
+swa checkpoint = ['/home/user/share1/kaggle/2022/hubmap-organ-segmentation/result/run20/upernet-swin_small_patch4_window7_224_22k-aux5-768/fold-3/checkpoint//00012006.model.pth'
+ '/home/user/share1/kaggle/2022/hubmap-organ-segmentation/result/run20/upernet-swin_small_patch4_window7_224_22k-aux5-768/fold-3/checkpoint//00014076.model.pth'
+ '/home/user/share1/kaggle/2022/hubmap-organ-segmentation/result/run20/upernet-swin_small_patch4_window7_224_22k-aux5-768/fold-3/checkpoint//00010488.model.pth']
+lb_score = 0.7874228882912423
+
+
+######################################3
+local cv
+ 
+fold-0
+	0.252669	all	0.715975
+	0.064057	kidney	0.936300
+	0.074733	prostate	0.793430
+	0.039146	largeintestine	0.901231
+	0.024911	spleen	0.798531
+	0.049822	lung	0.129678
+fold-1
+	0.249110	all	0.822849
+	0.081851	kidney	0.944036
+	0.053381	prostate	0.860772
+	0.032028	largeintestine	0.898413
+	0.060498	spleen	0.790220
+	0.021352	lung	0.242596
+fold-2
+	0.249110	all	0.798237
+	0.085409	kidney	0.939717
+	0.064057	prostate	0.849454
+	0.042705	largeintestine	0.849303
+	0.024911	spleen	0.851784
+	0.032028	lung	0.208788
+fold-3
+	0.249110	all	0.787423
+	0.067616	kidney	0.939265
+	0.071174	prostate	0.821587
+	0.035587	largeintestine	0.904300
+	0.039146	spleen	0.846358
+	0.035587	lung	0.248889
+
+
+Process finished with exit code 0
+
