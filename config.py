@@ -3,17 +3,17 @@ import argparse
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--image_size", type=int, required=False, default=256)
+    parser.add_argument("--image_size", type=int, required=False, default=1024)
     parser.add_argument("--fold", type=int, required=False, default=0)
     parser.add_argument("--model", type=str, required=False, default="nvidia/segformer-b0-finetuned-cityscapes-1024-1024")
     parser.add_argument("--loss", type=str, required=False, default="Dice_BCE")
-    parser.add_argument("--lr", type=float, required=False, default=3e-5)
-    parser.add_argument("--batch_size", type=int, default=2, required=False)
-    parser.add_argument("--epochs", type=int, default=5, required=False)
+    parser.add_argument("--lr", type=float, required=False, default=8e-5)
+    parser.add_argument("--batch_size", type=int, default=4, required=False)
+    parser.add_argument("--epochs", type=int, default=21, required=False)
     parser.add_argument(
         "--csv_path",
         type=str,
-        default="../input/hubmap-folds/train_256x256_5folds.csv",
+        default="../input/hubmap-folds/train_unsplit_data.csv",
         required=False,
     )
     return parser.parse_args()
@@ -34,5 +34,5 @@ CSV_PATH = args.csv_path
 
 IMAGE_SIZE = args.image_size
 
-MEAN = [0.78036435, 0.75635034, 0.77327976]
-STD = [0.24925208, 0.26279064, 0.258655]
+MEAN =  [0.485, 0.456, 0.406]
+STD = [0.229, 0.224, 0.225]
