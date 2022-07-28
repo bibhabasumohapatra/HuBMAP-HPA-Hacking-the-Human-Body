@@ -36,7 +36,7 @@ class HubDataset(torch.utils.data.Dataset):
         # image = image / np.max(image)
         
         if self.augmentations is not None:
-            image, mask = self.augment(image, mask)
+            image, mask = self.augmentations(image, mask)
 
     
         image = np.transpose(image, (2, 0, 1)).astype(np.float32)
