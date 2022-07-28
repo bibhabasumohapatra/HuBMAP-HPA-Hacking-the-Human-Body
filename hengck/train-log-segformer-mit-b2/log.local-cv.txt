@@ -1,0 +1,51 @@
+
+
+--- [START 2022-07-26_07-09-40] ----------------------------------------------------------------
+
+** net setting **
+organ_threshold = {'kidney': 0.5, 'prostate': 0.5, 'largeintestine': 0.5, 'spleen': 0.5, 'lung': 0.2}
+swa checkpoint = ['/home/user/share1/kaggle/2022/hubmap-organ-segmentation/result/run20/segformer-mit-b2-aux5-768//fold-0/checkpoint//00008280.model.pth'
+ '/home/user/share1/kaggle/2022/hubmap-organ-segmentation/result/run20/segformer-mit-b2-aux5-768//fold-0/checkpoint//00008832.model.pth'
+ '/home/user/share1/kaggle/2022/hubmap-organ-segmentation/result/run20/segformer-mit-b2-aux5-768//fold-0/checkpoint//00010626.model.pth']
+lb_score = 0.7260492543956031
+
+
+--- [START 2022-07-26_07-09-40] ----------------------------------------------------------------
+
+** net setting **
+organ_threshold = {'kidney': 0.5, 'prostate': 0.5, 'largeintestine': 0.5, 'spleen': 0.5, 'lung': 0.2}
+swa checkpoint = ['/home/user/share1/kaggle/2022/hubmap-organ-segmentation/result/run20/segformer-mit-b2-aux5-768//fold-1/checkpoint//00009522.model.pth'
+ '/home/user/share1/kaggle/2022/hubmap-organ-segmentation/result/run20/segformer-mit-b2-aux5-768//fold-1/checkpoint//00011316.model.pth'
+ '/home/user/share1/kaggle/2022/hubmap-organ-segmentation/result/run20/segformer-mit-b2-aux5-768//fold-1/checkpoint//00012834.model.pth']
+lb_score = 0.8244254329995623
+
+
+--- [START 2022-07-26_07-09-40] ----------------------------------------------------------------
+
+** net setting **
+organ_threshold = {'kidney': 0.5, 'prostate': 0.5, 'largeintestine': 0.5, 'spleen': 0.5, 'lung': 0.2}
+swa checkpoint = ['/home/user/share1/kaggle/2022/hubmap-organ-segmentation/result/run20/segformer-mit-b2-aux5-768//fold-2/checkpoint//00011040.model.pth'
+ '/home/user/share1/kaggle/2022/hubmap-organ-segmentation/result/run20/segformer-mit-b2-aux5-768//fold-2/checkpoint//00012006.model.pth'
+ '/home/user/share1/kaggle/2022/hubmap-organ-segmentation/result/run20/segformer-mit-b2-aux5-768//fold-2/checkpoint//00013110.model.pth']
+lb_score = 0.804888780184637
+
+
+--- [START 2022-07-26_07-09-40] ----------------------------------------------------------------
+
+** net setting **
+organ_threshold = {'kidney': 0.5, 'prostate': 0.5, 'largeintestine': 0.5, 'spleen': 0.5, 'lung': 0.2}
+swa checkpoint = ['/home/user/share1/kaggle/2022/hubmap-organ-segmentation/result/run20/segformer-mit-b2-aux5-768//fold-3/checkpoint//00015732.model.pth'
+ '/home/user/share1/kaggle/2022/hubmap-organ-segmentation/result/run20/segformer-mit-b2-aux5-768//fold-3/checkpoint//00012558.model.pth'
+ '/home/user/share1/kaggle/2022/hubmap-organ-segmentation/result/run20/segformer-mit-b2-aux5-768//fold-3/checkpoint//00014352.model.pth']
+lb_score = 0.7839648165478695
+
+
+--- [START 2022-07-26_07-09-40] ----------------------------------------------------------------
+
+** net setting **
+organ_threshold = {'kidney': 0.5, 'prostate': 0.5, 'largeintestine': 0.5, 'spleen': 0.5, 'lung': 0.2}
+swa checkpoint = ['/home/user/share1/kaggle/2022/hubmap-organ-segmentation/result/run20/segformer-mit-b2-aux5-768//fold-4/checkpoint//00012558.model.pth'
+ '/home/user/share1/kaggle/2022/hubmap-organ-segmentation/result/run20/segformer-mit-b2-aux5-768//fold-4/checkpoint//00013386.model.pth'
+ '/home/user/share1/kaggle/2022/hubmap-organ-segmentation/result/run20/segformer-mit-b2-aux5-768//fold-4/checkpoint//00014076.model.pth']
+lb_score = 0.7998623111282941
+
