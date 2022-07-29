@@ -21,7 +21,7 @@ class HubDataset(torch.utils.data.Dataset):
         mask = io.imread(self.mask_path[item])
         mask = mask.reshape(mask.shape[0],mask.shape[1],1)
         
-        image = image.astype(np.float32)/255
+	image = image.astype(np.float32)/255
 	mask  = mask.astype(np.float32)/255
 		
         
