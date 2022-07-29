@@ -6,9 +6,9 @@ import torch.nn as nn
 
 
 import config
-import loss
+import loss as losses
 
-criterion = loss.criterion
+criterion = losses.criterion
 
 scaler = torch.cuda.amp.GradScaler()
 
@@ -43,7 +43,7 @@ def train(model, train_loader, device, optimizer):
 
 
 @torch.no_grad()
-def evaluation(model, valid_loader, device, optimizer):
+def evaluation(model, valid_loader, device):
     model.eval()
     running_dice_score = 0.0
     running_val_loss = 0.0
@@ -60,7 +60,7 @@ def evaluation(model, valid_loader, device, optimizer):
         running_val_loss += criterion(output, masks)
 
         output = torch.sigmoid(output)
-        running_dice_score += loss.dice_metric(masks, output)
+        running_dice_score += losses.dice_metric(masks, output)
 
     val_loss = running_val_loss / len(valid_loader)
     dice_score = running_dice_score / len(valid_loader)

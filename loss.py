@@ -54,7 +54,7 @@ if loss == "FocalLoss":
         return FocalLoss(y_pred, y_true)
 
 
-def dice_coef(_mask1, _mask2):
+def dice_metric(_mask1, _mask2):
 
     batch_size = _mask1.shape[0]
     dice_total = 0.0

@@ -109,7 +109,6 @@ for fold in {config.FOLDS}:
             model=model,
             valid_loader=valid_loader,
             device=config.DEVICE,
-            optimizer=optimizer,
         )
 
         print(f"validation DICE Metric={dice_score}")
