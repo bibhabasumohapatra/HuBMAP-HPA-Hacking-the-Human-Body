@@ -22,7 +22,7 @@ class HubDataset(torch.utils.data.Dataset):
         mask = mask.reshape(mask.shape[0],mask.shape[1],1)
         
         image = image.astype(np.float32)/255
-	mask  = mask.astype(np.float32)/255
+	    mask  = mask.astype(np.float32)/255
 		
         
 		# s = self.pixel_size/0.4 * (config.IMAGE_SIZE/image.shape[0])
