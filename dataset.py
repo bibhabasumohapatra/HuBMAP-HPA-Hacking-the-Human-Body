@@ -40,6 +40,8 @@ class HubDataset(torch.utils.data.Dataset):
             
             
         image = np.transpose(image, (2, 0, 1)).astype(np.float32)
+	
+        mask = mask.reshape(mask.shape[0],mask.shape[1],1)  ##  small problem soving: that adds channels to remove bug
         mask = np.transpose(mask, (2, 0, 1)).astype(np.float32)
         
         return {
