@@ -102,7 +102,7 @@ def do_random_noise(image, mask, mag=0.1):
 
 # intensity
 def do_random_contast(image, mask, mag=0.3):
-    alpha = 1 + random.uniform(-1, 1) * mag
+    alpha = 1 + np.random.uniform(-1, 1) * mag
     image = image * alpha
     image = np.clip(image, 0, 1)
     return image, mask
@@ -115,9 +115,9 @@ def do_random_hsv(image, mask, mag=[0.15, 0.25, 0.25]):
     h = hsv[:, :, 0].astype(np.float32)  # hue
     s = hsv[:, :, 1].astype(np.float32)  # saturation
     v = hsv[:, :, 2].astype(np.float32)  # value
-    h = (h * (1 + random.uniform(-1, 1) * mag[0])) % 180
-    s = s * (1 + random.uniform(-1, 1) * mag[1])
-    v = v * (1 + random.uniform(-1, 1) * mag[2])
+    h = (h * (1 + np.random.uniform(-1, 1) * mag[0])) % 180
+    s = s * (1 + np.random.uniform(-1, 1) * mag[1])
+    v = v * (1 + np.random.uniform(-1, 1) * mag[2])
 
     hsv[:, :, 0] = np.clip(h, 0, 180).astype(np.uint8)
     hsv[:, :, 1] = np.clip(s, 0, 255).astype(np.uint8)
