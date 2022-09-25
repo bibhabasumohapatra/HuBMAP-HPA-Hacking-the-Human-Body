@@ -1,6 +1,6 @@
 # HuBMAP-HPA-Hacking-the-Human-Body
 When you think of “life hacks,” normally you’d imagine productivity techniques. But how about the kind that helps you understand your body at a molecular level? It may be possible! Researchers must first determine the function and relationships among the 37 trillion cells that make up the human body. A better understanding of our cellular composition could help people live healthier, longer lives.
-
+### Place 80th solution
 - credits for augmentation: hengck https://www.kaggle.com/hengck23
 - thresholding experiments : otsu, li, mean, median from scikit image Library
 - Coat + Daformer :  encoder => coat_lite_medium() decoder => daformer_conv3x3 pretrained encoder weights from timm
